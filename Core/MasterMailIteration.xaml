@@ -7,7 +7,7 @@
     <x:Property Name="BreakTriggerScopeInArgument" Type="InArgument(x:String)" />
   </x:Members>
   <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
-  <sap:VirtualizedContainerService.HintSize>858.4,3753.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>824,1686.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -122,7 +122,7 @@
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Each mail should served individually&#xA;&#xA;Hint: Mail should be marked as read only and only if procces performed successful or BE occured" DisplayName="Master Mail Iteration" sap:VirtualizedContainerService.HintSize="868.8,3688.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
+  <Sequence sap2010:Annotation.AnnotationText="Each mail should served individually&#xA;&#xA;Hint: Mail should be marked as read only and only if procces performed successful or BE occured" DisplayName="Master Mail Iteration" sap:VirtualizedContainerService.HintSize="750.4,1621.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="i" />
     </Sequence.Variables>
@@ -133,19 +133,19 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEach x:TypeArguments="snm:MailMessage" sap2010:Annotation.AnnotationText="For each mail check if the subject is know and classified then invoke the corrosponsing WF." DisplayName="For Each - Mail" sap:VirtualizedContainerService.HintSize="764.8,2112" sap2010:WorkflowViewState.IdRef="ForEach`1_2">
+    <ui:ForEach x:TypeArguments="snm:MailMessage" sap2010:Annotation.AnnotationText="For each mail check if the subject is know and classified then invoke the corrosponsing WF." DisplayName="For Each - Mail" sap:VirtualizedContainerService.HintSize="688,1449.6" sap2010:WorkflowViewState.IdRef="ForEach`1_2">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="snm:MailMessage">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="currentMailMessage" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="731.2,1892.8" sap2010:WorkflowViewState.IdRef="Sequence_17">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="654.4,1230.4" sap2010:WorkflowViewState.IdRef="Sequence_17">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <TryCatch sap2010:Annotation.AnnotationText="Each mail should served individually&#xA;- if BE occured then log it only with warning level. [because it is related to received mail]&#xA;- SE only can be occured via the invoked - generic WF`s" DisplayName="Try Catch - Each Mail" sap:VirtualizedContainerService.HintSize="688,1803.2" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+            <TryCatch sap2010:Annotation.AnnotationText="Each mail should served individually&#xA;- if BE occured then log it only with warning level. [because it is related to received mail]&#xA;- SE only can be occured via the invoked - generic WF`s" DisplayName="Try Catch - Each Mail" sap:VirtualizedContainerService.HintSize="611.2,1140.8" sap2010:WorkflowViewState.IdRef="TryCatch_3">
               <TryCatch.Variables>
                 <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="QueueItemInformation" />
               </TryCatch.Variables>
@@ -157,7 +157,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <TryCatch.Try>
-                <Sequence DisplayName="Mail handling" sap:VirtualizedContainerService.HintSize="651.2,1488.8" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                <Sequence DisplayName="Mail handling" sap:VirtualizedContainerService.HintSize="574.4,826.4" sap2010:WorkflowViewState.IdRef="Sequence_45">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="ui:BusinessRuleException" Name="BE" />
                   </Sequence.Variables>
@@ -166,7 +166,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:RetryScope DisplayName="Retry Scope Actions" sap:VirtualizedContainerService.HintSize="588.8,52.8" sap2010:WorkflowViewState.IdRef="RetryScope_2">
+                  <ui:RetryScope sap2010:Annotation.AnnotationText="Read and validate" DisplayName="Retry Scope Actions" sap:VirtualizedContainerService.HintSize="512,84" sap2010:WorkflowViewState.IdRef="RetryScope_2">
                     <ui:RetryScope.ActivityBody>
                       <ActivityAction>
                         <Sequence sap2010:Annotation.AnnotationText="- Check Subject&#xA;- Invoke Corrosponding WF Related to Current Founded Code in Subject" DisplayName="Actions" sap:VirtualizedContainerService.HintSize="512,1258.4" sap2010:WorkflowViewState.IdRef="Sequence_46">
@@ -249,16 +249,19 @@
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:RetryScope>
-                  <Sequence DisplayName="Sequence handling success or business exception" sap:VirtualizedContainerService.HintSize="588.8,1284" sap2010:WorkflowViewState.IdRef="Sequence_53">
+                  <Sequence sap2010:Annotation.AnnotationText="Send mail for each " DisplayName="Sequence handling success or business exception" sap:VirtualizedContainerService.HintSize="512,590.4" sap2010:WorkflowViewState.IdRef="Sequence_53">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence sap2010:Annotation.AnnotationText="-Mark Mail as read&#xA;- delete mail if necessary" DisplayName="Mark Mail As Read" sap:VirtualizedContainerService.HintSize="526.4,127.2" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                    <Sequence sap2010:Annotation.AnnotationText="-Mark Mail as read&#xA;- delete mail if necessary" DisplayName="Mark Mail As Read" sap:VirtualizedContainerService.HintSize="449.6,127.2" sap2010:WorkflowViewState.IdRef="Sequence_63">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -341,7 +344,7 @@
                         </If.Else>
                       </If>
                     </Sequence>
-                    <If sap2010:Annotation.AnnotationText="Mark mail as read and send email response&#xA;" DisplayName="If BE" sap:VirtualizedContainerService.HintSize="526.4,850.4" sap2010:WorkflowViewState.IdRef="If_12">
+                    <If sap2010:Annotation.AnnotationText="Mark mail as read and send email response&#xA;" DisplayName="If BE" sap:VirtualizedContainerService.HintSize="449.6,112.8" sap2010:WorkflowViewState.IdRef="If_12">
                       <If.Condition>
                         <InArgument x:TypeArguments="x:Boolean">
                           <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_150">BE != null</CSharpValue>
@@ -350,6 +353,8 @@
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
@@ -408,7 +413,7 @@
                         </Sequence>
                       </If.Else>
                     </If>
-                    <Sequence sap2010:Annotation.AnnotationText="if PerformOneMailPerTrigger" DisplayName="Break?" sap:VirtualizedContainerService.HintSize="526.4,114.4" sap2010:WorkflowViewState.IdRef="Sequence_69">
+                    <Sequence sap2010:Annotation.AnnotationText="if PerformOneMailPerTrigger" DisplayName="Break?" sap:VirtualizedContainerService.HintSize="449.6,114.4" sap2010:WorkflowViewState.IdRef="Sequence_69">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -441,7 +446,7 @@
                 </Sequence>
               </TryCatch.Try>
               <TryCatch.Catches>
-                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="654.4,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="577.6,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -452,7 +457,7 @@
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                     </ActivityAction.Argument>
-                    <TryCatch sap2010:Annotation.AnnotationText="- Prepare HTML Body&#xA;- Send Mail To Admin With SE Details" DisplayName="Try Catch - Send mail To Admin" sap:VirtualizedContainerService.HintSize="510.4,1505.6" sap2010:WorkflowViewState.IdRef="TryCatch_6">
+                    <TryCatch sap2010:Annotation.AnnotationText="- Prepare HTML Body&#xA;- Send Mail To Admin With SE Details" DisplayName="Try Catch - Send mail To Admin" sap:VirtualizedContainerService.HintSize="433.6,231.2" sap2010:WorkflowViewState.IdRef="TryCatch_6">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -487,7 +492,7 @@
                               </InArgument>
                             </ui:LogMessage.Message>
                           </ui:LogMessage>
-                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Processes\\Mail\\HTML\\PrepareErrorAdminMail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="411.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Processes\\Mail\\HTML\\PrepareErrorAdminMail.xaml">
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PrepareErrorAdminMail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="411.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Mail\\HTML\\PrepareErrorAdminMail.xaml">
                             <ui:InvokeWorkflowFile.Arguments>
                               <InArgument x:TypeArguments="s:Exception" x:Key="in_SE">
                                 <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_86">exception</CSharpValue>
@@ -506,7 +511,7 @@
                               </InArgument>
                             </ui:InvokeWorkflowFile.Arguments>
                           </ui:InvokeWorkflowFile>
-                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Send SE Mail To Admin Only" DisplayName="Processes\\Mail\\SendMail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="411.2,144.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Processes\\Mail\\SendMail.xaml">
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Send SE Mail To Admin Only" DisplayName="SendMail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="411.2,144.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Mail\\SendMail.xaml">
                             <ui:InvokeWorkflowFile.Arguments>
                               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
                                 <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_91">in_Config</CSharpValue>
@@ -576,7 +581,7 @@
                         </Sequence>
                       </TryCatch.Try>
                       <TryCatch.Catches>
-                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="476.8,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_8">
+                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_8">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -587,7 +592,7 @@
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                             </ActivityAction.Argument>
-                            <ui:LogMessage DisplayName="Fatal Error While Sending Mail" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_35" Level="Fatal">
+                            <ui:LogMessage DisplayName="Fatal Error While Sending Mail" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_35" Level="Fatal">
                               <ui:LogMessage.Message>
                                 <InArgument x:TypeArguments="x:Object">
                                   <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_95">exception.Message</CSharpValue>
@@ -600,7 +605,7 @@
                     </TryCatch>
                   </ActivityAction>
                 </Catch>
-                <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="654.4,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+                <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="577.6,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -611,7 +616,7 @@
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
                     </ActivityAction.Argument>
-                    <TryCatch sap2010:Annotation.AnnotationText="If unpredictable exception occured then log and send to admin" DisplayName="Try Catch - BE" sap:VirtualizedContainerService.HintSize="509.6,1600" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                    <TryCatch sap2010:Annotation.AnnotationText="If unpredictable exception occured then log and send to admin" DisplayName="Try Catch - BE" sap:VirtualizedContainerService.HintSize="526.4,1474.4" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -705,7 +710,7 @@
                         </Sequence>
                       </TryCatch.Try>
                       <TryCatch.Catches>
-                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="476,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_6">
+                        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="492.8,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_6">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -716,7 +721,7 @@
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                             </ActivityAction.Argument>
-                            <TryCatch sap2010:Annotation.AnnotationText="- Prepare HTML Body&#xA;- Send Mail To Admin With SE Details" DisplayName="Try Catch - Send mail To Admin" sap:VirtualizedContainerService.HintSize="488,1200.8" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+                            <TryCatch sap2010:Annotation.AnnotationText="- Prepare HTML Body&#xA;- Send Mail To Admin With SE Details" DisplayName="Try Catch - Send mail To Admin" sap:VirtualizedContainerService.HintSize="486.4,1208" sap2010:WorkflowViewState.IdRef="TryCatch_5">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -725,7 +730,7 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <TryCatch.Try>
-                                <Sequence sap2010:Annotation.AnnotationText="Send Mail to Admin" DisplayName="SE Occured" sap:VirtualizedContainerService.HintSize="449.6,927.2" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                <Sequence sap2010:Annotation.AnnotationText="Send Mail to Admin" DisplayName="SE Occured" sap:VirtualizedContainerService.HintSize="449.6,932.8" sap2010:WorkflowViewState.IdRef="Sequence_25">
                                   <Sequence.Variables>
                                     <Variable x:TypeArguments="s:Exception" Name="SE" />
                                     <Variable x:TypeArguments="x:String" Name="HTMLBody" />
@@ -737,21 +742,21 @@
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:LogMessage DisplayName="SE" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="Error">
+                                  <ui:LogMessage DisplayName="SE" sap:VirtualizedContainerService.HintSize="387.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="Error">
                                     <ui:LogMessage.Message>
                                       <InArgument x:TypeArguments="x:Object">
                                         <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_60">"Unpredictable error occured while perform BE actions on current mail, details : " + exception.Message</CSharpValue>
                                       </InArgument>
                                     </ui:LogMessage.Message>
                                   </ui:LogMessage>
-                                  <ui:LogMessage DisplayName="Send SE To Admin" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_29" Level="Info">
+                                  <ui:LogMessage DisplayName="Send SE To Admin" sap:VirtualizedContainerService.HintSize="387.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_29" Level="Info">
                                     <ui:LogMessage.Message>
                                       <InArgument x:TypeArguments="x:Object">
                                         <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_62">"Invoke, send SE mail to admin"</CSharpValue>
                                       </InArgument>
                                     </ui:LogMessage.Message>
                                   </ui:LogMessage>
-                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Processes\\Mail\\HTML\\PrepareErrorAdminMail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Processes\\Mail\\HTML\\PrepareErrorAdminMail.xaml">
+                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PrepareErrorAdminMail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Mail\\HTML\\PrepareErrorAdminMail.xaml">
                                     <ui:InvokeWorkflowFile.Arguments>
                                       <InArgument x:TypeArguments="s:Exception" x:Key="in_SE">
                                         <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_63">exception</CSharpValue>
@@ -770,7 +775,7 @@
                                       </InArgument>
                                     </ui:InvokeWorkflowFile.Arguments>
                                   </ui:InvokeWorkflowFile>
-                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Send SE Mail To Admin Only" DisplayName="Processes\\Mail\\SendMail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Processes\\Mail\\SendMail.xaml">
+                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Send SE Mail To Admin Only" DisplayName="SendMail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,144.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Mail\\SendMail.xaml">
                                     <ui:InvokeWorkflowFile.Arguments>
                                       <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
                                         <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_80">in_Config</CSharpValue>
@@ -800,7 +805,7 @@
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                   </ui:InvokeWorkflowFile>
-                                  <If DisplayName="If - SE Occured" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="If_5">
+                                  <If DisplayName="If - SE Occured" sap:VirtualizedContainerService.HintSize="387.2,52.8" sap2010:WorkflowViewState.IdRef="If_5">
                                     <If.Condition>
                                       <InArgument x:TypeArguments="x:Boolean">
                                         <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_72">SE!=null</CSharpValue>
@@ -830,7 +835,7 @@
                                       <Sequence sap2010:WorkflowViewState.IdRef="Sequence_27" />
                                     </If.Else>
                                   </If>
-                                  <ui:LogMessage DisplayName="Send SE To Admin success" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info">
+                                  <ui:LogMessage DisplayName="Send SE To Admin success" sap:VirtualizedContainerService.HintSize="387.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info">
                                     <ui:LogMessage.Message>
                                       <InArgument x:TypeArguments="x:Object">
                                         <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_74">"Invoke, send SE mail to admin terminated successful"</CSharpValue>
@@ -840,7 +845,7 @@
                                 </Sequence>
                               </TryCatch.Try>
                               <TryCatch.Catches>
-                                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="454,21" sap2010:WorkflowViewState.IdRef="Catch`1_7">
+                                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="452.8,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_7">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>

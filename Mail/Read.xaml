@@ -270,7 +270,7 @@
             </Assign.To>
             <Assign.Value>
               <InArgument x:TypeArguments="scg:List(snm:MailMessage)">
-                <CSharpValue x:TypeArguments="scg:List(snm:MailMessage)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_53" xml:space="preserve">out_ListOfMails
+                <CSharpValue x:TypeArguments="scg:List(snm:MailMessage)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_54" xml:space="preserve">out_ListOfMails
     .Where(mail =&gt; ListOfSubjects.Any(subject =&gt; string.Equals(mail.Subject, subject, StringComparison.OrdinalIgnoreCase)))
     .Take(NumberMails)
     .ToList()</CSharpValue>
