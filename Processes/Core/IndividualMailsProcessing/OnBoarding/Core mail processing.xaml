@@ -1,0 +1,1250 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CR_01_CustomerVerification" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sn="clr-namespace:System.Net;assembly=System.Net.Primitives" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_Mail" Type="InArgument(snm:MailMessage)" />
+    <x:Property Name="in_ProcessSpecialConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>959.3333333333334,4989.333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Net</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.CompilerServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Net.HttpListener</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.Net.NameResolution</AssemblyReference>
+      <AssemblyReference>System.Net.Primitives</AssemblyReference>
+      <AssemblyReference>System.Net.Requests</AssemblyReference>
+      <AssemblyReference>System.Net.ServicePoint</AssemblyReference>
+      <AssemblyReference>System.Net.WebClient</AssemblyReference>
+      <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
+      <AssemblyReference>System.Net.WebProxy</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.CompilerServices.Unsafe</AssemblyReference>
+      <AssemblyReference>System.Runtime.CompilerServices.VisualC</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="1) Validate in_Mail having:&#xA;- in Body:&#xA;*FullName: Name&#xA;*Payroll: Number&#xA;*Organization: organization&#xA;&#xA;2) Extract fields in case of success&#xA;&#xA;3) Add queue item&#xA;&#xA;4) Send mail&#xA;&#xA;&#xA;" DisplayName="Core mail processing" sap:VirtualizedContainerService.HintSize="834.6666666666666,4924.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <TryCatch DisplayName="Try Catch - Validate, Dispatch, prepare mail body, send mail" sap:VirtualizedContainerService.HintSize="772.6666666666666,4568.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Variables>
+        <Variable x:TypeArguments="scg:Dictionary(x:String, s:Tuple(x:String, x:String, x:String))" Name="DicOfStatus" />
+      </TryCatch.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <Sequence DisplayName="Actions" sap:VirtualizedContainerService.HintSize="734,4304.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="FullName" />
+            <Variable x:TypeArguments="x:String" Name="PayrollNumber" />
+            <Variable x:TypeArguments="x:Boolean" Name="isHighPriority" />
+            <Variable x:TypeArguments="x:String" Name="ReferenceNumber" />
+            <Variable x:TypeArguments="x:Boolean" Name="isAllSuccess" />
+            <Variable x:TypeArguments="x:String" Name="PostponeTime" />
+            <Variable x:TypeArguments="x:String" Name="Organization" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Read email" sap:VirtualizedContainerService.HintSize="672,96" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info">
+            <ui:LogMessage.Message>
+              <InArgument x:TypeArguments="x:Object">
+                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">"Read and validate email from ["+in_Mail.Sender.DisplayName+"]"</CSharpValue>
+              </InArgument>
+            </ui:LogMessage.Message>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LogMessage>
+          <Sequence sap2010:Annotation.AnnotationText="Init email subject &amp; body parts" DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="672,334" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MultipleAssign DisplayName="Multiple Assign - Mail Variables" sap:VirtualizedContainerService.HintSize="422.6666666666667,192.66666666666666" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">
+                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">FullName</CSharpReference>
+                      </OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_48">string.Empty</CSharpValue>
+                      </InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">
+                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">PayrollNumber</CSharpReference>
+                      </OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_49">string.Empty</CSharpValue>
+                      </InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="scg:Dictionary(x:String, s:Tuple(x:String, x:String, x:String))">
+                        <CSharpReference x:TypeArguments="scg:Dictionary(x:String, s:Tuple(x:String, x:String, x:String))" sap2010:WorkflowViewState.IdRef="CSharpReference`1_38">DicOfStatus</CSharpReference>
+                      </OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, s:Tuple(x:String, x:String, x:String))">
+                        <CSharpValue x:TypeArguments="scg:Dictionary(x:String, s:Tuple(x:String, x:String, x:String))" sap2010:WorkflowViewState.IdRef="CSharpValue`1_256" xml:space="preserve">//each tuple (original text, extracted var, exception MSG)
+new Dictionary&lt;string,Tuple&lt;string,string,string&gt;&gt;()
+{
+	{"PayrollNumber", new Tuple&lt;string,string,string&gt;(string.Empty,string.Empty,string.Empty)},
+	{"Organization", new Tuple&lt;string,string,string&gt;(string.Empty,string.Empty,string.Empty)},
+	{"FullName", new Tuple&lt;string,string,string&gt;(string.Empty,string.Empty,string.Empty)},
+}</CSharpValue>
+                      </InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">
+                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_54">Organization</CSharpReference>
+                      </OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_248">string.Empty</CSharpValue>
+                      </InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:MultipleAssign>
+          </Sequence>
+          <Sequence sap2010:Annotation.AnnotationText="- Validate each section of the body section." DisplayName="Validations" sap:VirtualizedContainerService.HintSize="672,2546" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Perform Validations on Mail Parts" sap:VirtualizedContainerService.HintSize="609.3333333333334,96" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info">
+              <ui:LogMessage.Message>
+                <InArgument x:TypeArguments="x:Object">
+                  <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">"Validate on mail mendatory variables..."</CSharpValue>
+                </InArgument>
+              </ui:LogMessage.Message>
+            </ui:LogMessage>
+            <Sequence DisplayName="Validate FullName" sap:VirtualizedContainerService.HintSize="609.3333333333334,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_16">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message - validate FullName" sap:VirtualizedContainerService.HintSize="510.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info">
+                <ui:LogMessage.Message>
+                  <InArgument x:TypeArguments="x:Object">
+                    <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_271">"Validate Full Name"</CSharpValue>
+                  </InArgument>
+                </ui:LogMessage.Message>
+              </ui:LogMessage>
+              <If DisplayName="Validate Employee Name" sap:VirtualizedContainerService.HintSize="510.4,816" sap2010:WorkflowViewState.IdRef="If_2">
+                <If.Condition>
+                  <InArgument x:TypeArguments="x:Boolean">
+                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_235" xml:space="preserve">(in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).Count(x=&gt;x.StartsWith(in_ProcessSpecialConfig["FullName"].ToString().ToUpper())) !=1) ||
+string.IsNullOrEmpty(in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).FirstOrDefault(x=&gt;x.StartsWith(in_ProcessSpecialConfig["FullName"].ToString().ToUpper()))
+.Replace(":",string.Empty).Replace(in_ProcessSpecialConfig["FullName"].ToString().ToUpper(),string.Empty).Trim())</CSharpValue>
+                  </InArgument>
+                </If.Condition>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="476.8,172.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign DisplayName="Assign - BE to Dic" sap:VirtualizedContainerService.HintSize="433.6,83.2" sap2010:WorkflowViewState.IdRef="Assign_14">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="s:Tuple(x:String, x:String, x:String)">
+                          <CSharpReference x:TypeArguments="s:Tuple(x:String, x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_47">DicOfStatus["FullName"]</CSharpReference>
+                        </OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="s:Tuple(x:String, x:String, x:String)">
+                          <CSharpValue x:TypeArguments="s:Tuple(x:String, x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_249" xml:space="preserve">(in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).Count(x=&gt;x.StartsWith(in_ProcessSpecialConfig["FullName"].ToString().ToUpper())) !=1) 
+?
+(new Tuple&lt;string,string,string&gt;
+(
+	in_Config["CannotBeRecognizedIndication"].ToString(),
+	in_Config["CannotBeRecognizedIndication"].ToString(),
+	in_Config["BE_MSG02"].ToString().Replace("TOKEN1",in_ProcessSpecialConfig["FullName"].ToString())
+))
+:
+(new Tuple&lt;string,string,string&gt;
+(
+	in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).FirstOrDefault(x=&gt;x.StartsWith(in_ProcessSpecialConfig["FullName"].ToString().ToUpper())).Replace(":",string.Empty),
+	in_Config["CannotBeRecognizedIndication"].ToString(),
+	in_Config["BE_MSG03"].ToString().Replace("TOKEN1",in_ProcessSpecialConfig["FullName"].ToString())
+))</CSharpValue>
+                        </InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap:VirtualizedContainerService.HintSize="476.8,460" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap2010:Annotation.AnnotationText="Get line contining FullName word" DisplayName="Assign - FullName" sap:VirtualizedContainerService.HintSize="433.6,114.4" sap2010:WorkflowViewState.IdRef="Assign_2">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">
+                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">FullName</CSharpReference>
+                        </OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_295" xml:space="preserve">in_Mail.Body
+    .Split(new string[] { "\n" }, StringSplitOptions.None)
+    .Select(x =&gt; x.Trim())
+    .FirstOrDefault(x =&gt;
+        x.StartsWith(in_ProcessSpecialConfig["FullName"].ToString(), StringComparison.OrdinalIgnoreCase)
+    )
+    .Replace(":", string.Empty)
+    .Replace(in_ProcessSpecialConfig["FullName"].ToString(), string.Empty, StringComparison.OrdinalIgnoreCase)
+    .Trim()</CSharpValue>
+                        </InArgument>
+                      </Assign.Value>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Assign>
+                    <Assign DisplayName="Assign - Success to Dic" sap:VirtualizedContainerService.HintSize="433.6,83.2" sap2010:WorkflowViewState.IdRef="Assign_13">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="s:Tuple(x:String, x:String, x:String)">
+                          <CSharpReference x:TypeArguments="s:Tuple(x:String, x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_48">DicOfStatus["FullName"]</CSharpReference>
+                        </OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="s:Tuple(x:String, x:String, x:String)">
+                          <CSharpValue x:TypeArguments="s:Tuple(x:String, x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_251" xml:space="preserve">new Tuple&lt;string,string,string&gt;
+(
+	in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).FirstOrDefault(x=&gt;x.StartsWith(in_ProcessSpecialConfig["FullName"].ToString().ToUpper())),
+	FullName,
+	in_Config["SuccessIndication"].ToString()
+)</CSharpValue>
+                        </InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:LogMessage DisplayName="Success ClientName" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info">
+                      <ui:LogMessage.Message>
+                        <InArgument x:TypeArguments="x:Object">
+                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_239">"Employee name is recognized successful and extracted from mail body as ["+FullName+"]"</CSharpValue>
+                        </InArgument>
+                      </ui:LogMessage.Message>
+                    </ui:LogMessage>
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+            <Sequence DisplayName="Validate orgnization name" sap:VirtualizedContainerService.HintSize="609.3333333333334,1024.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_49">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message - validate Orgnization name" sap:VirtualizedContainerService.HintSize="510,54" sap2010:WorkflowViewState.IdRef="LogMessage_30" Level="Info">
+                <ui:LogMessage.Message>
+                  <InArgument x:TypeArguments="x:Object">
+                    <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_272">"Validate organization name"</CSharpValue>
+                  </InArgument>
+                </ui:LogMessage.Message>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:LogMessage>
+              <If DisplayName="Validate Organization Name" sap:VirtualizedContainerService.HintSize="510,820" sap2010:WorkflowViewState.IdRef="If_15">
+                <If.Condition>
+                  <InArgument x:TypeArguments="x:Boolean">
+                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_284" xml:space="preserve">(in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).Count(x=&gt;x.StartsWith(in_ProcessSpecialConfig["Organization"].ToString().ToUpper())) !=1) ||
+string.IsNullOrEmpty(in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).FirstOrDefault(x=&gt;x.StartsWith(in_ProcessSpecialConfig["Organization"].ToString().ToUpper()))
+.Replace(":",string.Empty).Replace(in_ProcessSpecialConfig["Organization"].ToString().ToUpper(),string.Empty).Trim())</CSharpValue>
+                  </InArgument>
+                </If.Condition>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="476,173.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign DisplayName="Assign - BE to Dic" sap:VirtualizedContainerService.HintSize="434,86" sap2010:WorkflowViewState.IdRef="Assign_34">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="s:Tuple(x:String, x:String, x:String)">
+                          <CSharpReference x:TypeArguments="s:Tuple(x:String, x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_63">DicOfStatus["Organization"]</CSharpReference>
+                        </OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="s:Tuple(x:String, x:String, x:String)">
+                          <CSharpValue x:TypeArguments="s:Tuple(x:String, x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_298" xml:space="preserve">(in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).Count(x=&gt;x.StartsWith(in_ProcessSpecialConfig["Organization"].ToString().ToUpper())) !=1) 
+?
+(new Tuple&lt;string,string,string&gt;
+(
+	in_Config["CannotBeRecognizedIndication"].ToString(),
+	in_Config["CannotBeRecognizedIndication"].ToString(),
+	in_Config["BE_MSG02"].ToString().Replace("TOKEN1",in_ProcessSpecialConfig["Organization"].ToString())
+))
+:
+(new Tuple&lt;string,string,string&gt;
+(
+	in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).FirstOrDefault(x=&gt;x.StartsWith(in_ProcessSpecialConfig["Organization"].ToString().ToUpper())).Replace(":",string.Empty),
+	in_Config["CannotBeRecognizedIndication"].ToString(),
+	in_Config["BE_MSG03"].ToString().Replace("TOKEN1",in_ProcessSpecialConfig["Organization"].ToString())
+))</CSharpValue>
+                        </InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap:VirtualizedContainerService.HintSize="476,462.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_48">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap2010:Annotation.AnnotationText="Get line contining Organization word" DisplayName="Assign - Organization" sap:VirtualizedContainerService.HintSize="434,116.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_35">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">
+                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_64">Organization</CSharpReference>
+                        </OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_299" xml:space="preserve">in_Mail.Body
+    .Split(new string[] { "\n" }, StringSplitOptions.None)
+    .Select(x =&gt; x.Trim())
+    .FirstOrDefault(x =&gt;
+        x.StartsWith(in_ProcessSpecialConfig["Organization"].ToString(), StringComparison.OrdinalIgnoreCase)
+    )
+.Split(new string[] { ":" }, StringSplitOptions.None)[1].Trim()</CSharpValue>
+                        </InArgument>
+                      </Assign.Value>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Assign>
+                    <Assign DisplayName="Assign - Success to Dic" sap:VirtualizedContainerService.HintSize="434,86" sap2010:WorkflowViewState.IdRef="Assign_36">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="s:Tuple(x:String, x:String, x:String)">
+                          <CSharpReference x:TypeArguments="s:Tuple(x:String, x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_65">DicOfStatus["Organization"]</CSharpReference>
+                        </OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="s:Tuple(x:String, x:String, x:String)">
+                          <CSharpValue x:TypeArguments="s:Tuple(x:String, x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_286" xml:space="preserve">new Tuple&lt;string,string,string&gt;
+(
+	in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).FirstOrDefault(x=&gt;x.StartsWith(in_ProcessSpecialConfig["Organization"].ToString().ToUpper())),
+	Organization,
+	in_Config["SuccessIndication"].ToString()
+)</CSharpValue>
+                        </InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:LogMessage DisplayName="Success Organization" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_31" Level="Info">
+                      <ui:LogMessage.Message>
+                        <InArgument x:TypeArguments="x:Object">
+                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_277">"Organization name is recognized successful and extracted from mail body as ["+Organization+"]"</CSharpValue>
+                        </InArgument>
+                      </ui:LogMessage.Message>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:LogMessage>
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+            <Sequence DisplayName="Validate Payroll" sap:VirtualizedContainerService.HintSize="609.6,1079.2" sap2010:WorkflowViewState.IdRef="Sequence_19">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="ui:BusinessRuleException" Name="BE" />
+                <Variable x:TypeArguments="s:Exception" Name="SE" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign sap2010:Annotation.AnnotationText="Get line contining PayrollNumber word" DisplayName="Assign - PayrollNumber" sap:VirtualizedContainerService.HintSize="547.2,114.4" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">
+                    <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">PayrollNumber</CSharpReference>
+                  </OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">
+                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_297" xml:space="preserve">Regex.Match(
+in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).FirstOrDefault(x=&gt;x.StartsWith(in_ProcessSpecialConfig["PayrollNumber"].ToString().ToUpper()))
+,@"(\d)+").Value</CSharpValue>
+                  </InArgument>
+                </Assign.Value>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Assign>
+              <ui:LogMessage DisplayName="Log Message - validate PayrollNumber" sap:VirtualizedContainerService.HintSize="547.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info">
+                <ui:LogMessage.Message>
+                  <InArgument x:TypeArguments="x:Object">
+                    <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_243">"Validate PayrollNumber"</CSharpValue>
+                  </InArgument>
+                </ui:LogMessage.Message>
+              </ui:LogMessage>
+              <TryCatch DisplayName="Try Validate it's a number " sap:VirtualizedContainerService.HintSize="547.2,587.2" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <TryCatch.Try>
+                  <If DisplayName="If Payroll is number" sap:VirtualizedContainerService.HintSize="510.4,356" sap2010:WorkflowViewState.IdRef="If_13">
+                    <If.Condition>
+                      <InArgument x:TypeArguments="x:Boolean">
+                        <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_244">!PayrollNumber.IsNumeric()</CSharpValue>
+                      </InArgument>
+                    </If.Condition>
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="476.8,172.8" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign DisplayName="Assign - BE to Dic" sap:VirtualizedContainerService.HintSize="433.6,83.2" sap2010:WorkflowViewState.IdRef="Assign_30">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="s:Tuple(x:String, x:String, x:String)">
+                              <CSharpReference x:TypeArguments="s:Tuple(x:String, x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_58">DicOfStatus["PayrollNumber"]</CSharpReference>
+                            </OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="s:Tuple(x:String, x:String, x:String)">
+                              <CSharpValue x:TypeArguments="s:Tuple(x:String, x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_288" xml:space="preserve">(in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).Count(x=&gt;x.StartsWith(in_ProcessSpecialConfig["PayrollNumber"].ToString().ToUpper())) !=1) 
+?
+(new Tuple&lt;string,string,string&gt;
+(
+	in_Config["CannotBeRecognizedIndication"].ToString(),
+	in_Config["CannotBeRecognizedIndication"].ToString(),
+	in_Config["BE_MSG02"].ToString().Replace("TOKEN1",in_ProcessSpecialConfig["PayrollNumber"].ToString())
+))
+:
+(new Tuple&lt;string,string,string&gt;
+(
+	in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).FirstOrDefault(x=&gt;x.StartsWith(in_ProcessSpecialConfig["PayrollNumber"].ToString().ToUpper())).Replace(":",string.Empty),
+	in_Config["CannotBeRecognizedIndication"].ToString(),
+	in_Config["BE_MSG03"].ToString().Replace("TOKEN1",in_ProcessSpecialConfig["PayrollNumber"].ToString())
+))</CSharpValue>
+                            </InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="476.8,588" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap2010:Annotation.AnnotationText="Get line contining PayrollNumber word" DisplayName="Assign - PayrollNumber" sap:VirtualizedContainerService.HintSize="433.6,116" sap2010:WorkflowViewState.IdRef="Assign_31">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:String">
+                              <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_60">PayrollNumber</CSharpReference>
+                            </OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:String">
+                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_291" xml:space="preserve">in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).FirstOrDefault(x=&gt;x.StartsWith(in_ProcessSpecialConfig["PayrollNumber"].ToString().ToUpper()))
+.Replace(":",string.Empty).Replace(in_ProcessSpecialConfig["PayrollNumber"].ToString().ToUpper(),string.Empty).Trim()</CSharpValue>
+                            </InArgument>
+                          </Assign.Value>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Assign>
+                        <Assign DisplayName="Assign - Success to Dic" sap:VirtualizedContainerService.HintSize="433.6,84.8" sap2010:WorkflowViewState.IdRef="Assign_32">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="s:Tuple(x:String, x:String, x:String)">
+                              <CSharpReference x:TypeArguments="s:Tuple(x:String, x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_61">DicOfStatus["PayrollNumber"]</CSharpReference>
+                            </OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="s:Tuple(x:String, x:String, x:String)">
+                              <CSharpValue x:TypeArguments="s:Tuple(x:String, x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_268" xml:space="preserve">new Tuple&lt;string,string,string&gt;
+(
+	in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).FirstOrDefault(x=&gt;x.StartsWith(in_ProcessSpecialConfig["PayrollNumber"].ToString().ToUpper())),
+	Organization,
+	in_Config["SuccessIndication"].ToString()
+)</CSharpValue>
+                            </InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:LogMessage DisplayName="Success Payroll" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_29" Level="Info">
+                          <ui:LogMessage.Message>
+                            <InArgument x:TypeArguments="x:Object">
+                              <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_289">"Payroll number is recognized successful and extracted from mail body as ["+PayrollNumber+"]"</CSharpValue>
+                            </InArgument>
+                          </ui:LogMessage.Message>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:LogMessage>
+                        <Assign DisplayName="Assign - BE to Dic" sap:VirtualizedContainerService.HintSize="433.6,84.8" sap2010:WorkflowViewState.IdRef="Assign_33">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="s:Tuple(x:String, x:String, x:String)">
+                              <CSharpReference x:TypeArguments="s:Tuple(x:String, x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_62">DicOfStatus["PayrollNumber"]</CSharpReference>
+                            </OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="s:Tuple(x:String, x:String, x:String)">
+                              <CSharpValue x:TypeArguments="s:Tuple(x:String, x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_290" xml:space="preserve">(in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).Count(x=&gt;x.StartsWith(in_ProcessSpecialConfig["PayrollNumber"].ToString().ToUpper())) !=1) 
+?
+(new Tuple&lt;string,string,string&gt;
+(
+	in_Config["CannotBeRecognizedIndication"].ToString(),
+	in_Config["CannotBeRecognizedIndication"].ToString(),
+	in_Config["BE_MSG02"].ToString().Replace("TOKEN1",in_ProcessSpecialConfig["PayrollNumber"].ToString())
+))
+:
+(new Tuple&lt;string,string,string&gt;
+(
+	in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).FirstOrDefault(x=&gt;x.StartsWith(in_ProcessSpecialConfig["PayrollNumber"].ToString().ToUpper())).Replace(":",string.Empty),
+	in_Config["CannotBeRecognizedIndication"].ToString(),
+	in_Config["BE_MSG03"].ToString().Replace("TOKEN1",in_ProcessSpecialConfig["PayrollNumber"].ToString())
+))</CSharpValue>
+                            </InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="513.6,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                      <Assign DisplayName="Assign SE" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_26">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="s:Exception">
+                            <CSharpReference x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpReference`1_50">SE</CSharpReference>
+                          </OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="s:Exception">
+                            <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_246">exception</CSharpValue>
+                          </InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+              </TryCatch>
+              <If DisplayName="If - SE | BE" sap:VirtualizedContainerService.HintSize="547.2,52.8" sap2010:WorkflowViewState.IdRef="If_6">
+                <If.Condition>
+                  <InArgument x:TypeArguments="x:Boolean">
+                    <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_45">SE !=null || BE!=null</CSharpValue>
+                  </InArgument>
+                </If.Condition>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="476.8,174.4" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign DisplayName="Assign - BE to Dic" sap:VirtualizedContainerService.HintSize="433.6,84.8" sap2010:WorkflowViewState.IdRef="Assign_15">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="s:Tuple(x:String, x:String, x:String)">
+                          <CSharpReference x:TypeArguments="s:Tuple(x:String, x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_52">DicOfStatus["PayrollNumber"]</CSharpReference>
+                        </OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="s:Tuple(x:String, x:String, x:String)">
+                          <CSharpValue x:TypeArguments="s:Tuple(x:String, x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_253" xml:space="preserve">(in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).Count(x=&gt;x.StartsWith(in_ProcessSpecialConfig["PayrollNumber"].ToString().ToUpper())) !=1) 
+?
+(new Tuple&lt;string,string,string&gt;
+(
+	in_Config["CannotBeRecognizedIndication"].ToString(),
+	in_Config["CannotBeRecognizedIndication"].ToString(),
+	in_Config["BE_MSG02"].ToString().Replace("TOKEN1",in_ProcessSpecialConfig["ClientID"].ToString())
+))
+:
+(new Tuple&lt;string,string,string&gt;
+(
+	in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).FirstOrDefault(x=&gt;x.StartsWith(in_ProcessSpecialConfig["PayrollNumber"].ToString().ToUpper())),
+	string.IsNullOrEmpty(PayrollNumber)? in_Config["CannotBeRecognizedIndication"].ToString() : PayrollNumber,
+	SE!=null? "System Exception, " +SE.Message : "Busniness Exception, "+ BE.Message
+))</CSharpValue>
+                        </InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap:VirtualizedContainerService.HintSize="476.8,307.2" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign DisplayName="Assign - Success to Dic" sap:VirtualizedContainerService.HintSize="433.6,84.8" sap2010:WorkflowViewState.IdRef="Assign_16">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="s:Tuple(x:String, x:String, x:String)">
+                          <CSharpReference x:TypeArguments="s:Tuple(x:String, x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_53">DicOfStatus["PayrollNumber"]</CSharpReference>
+                        </OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="s:Tuple(x:String, x:String, x:String)">
+                          <CSharpValue x:TypeArguments="s:Tuple(x:String, x:String, x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_254" xml:space="preserve">new Tuple&lt;string,string,string&gt;
+(
+	in_Mail.Body.ToUpper().Split(new string[]{"\n"},StringSplitOptions.None).Select(x=&gt;x.Trim()).FirstOrDefault(x=&gt;x.StartsWith(in_ProcessSpecialConfig["PayrollNumber"].ToString().ToUpper())),
+	PayrollNumber,
+	in_Config["SuccessIndication"].ToString()
+)</CSharpValue>
+                        </InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:LogMessage DisplayName="Log Message - Valid id validation" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info">
+                      <ui:LogMessage.Message>
+                        <InArgument x:TypeArguments="x:Object">
+                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_255">"Payroll Number is recognized successfully as ["+PayrollNumber+"] validated successfully as egyptian ID by applying advanced check criteria"</CSharpValue>
+                        </InArgument>
+                      </ui:LogMessage.Message>
+                    </ui:LogMessage>
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+          </Sequence>
+          <Sequence sap2010:Annotation.AnnotationText="If Any Validation Failed Then Throw BE to send Information Mail." DisplayName="If Any Validation Failed Then Throw BE" sap:VirtualizedContainerService.HintSize="672,114.4" sap2010:WorkflowViewState.IdRef="Sequence_34">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Assign  is All Success" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_21">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">
+                  <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_43">isAllSuccess</CSharpReference>
+                </OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">
+                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_183">DicOfStatus.Values.Count(x=&gt;x.Item3.Equals(in_Config["SuccessIndication"].ToString())) &gt;= DicOfStatus.Count</CSharpValue>
+                </InArgument>
+              </Assign.Value>
+            </Assign>
+            <If DisplayName="If - Any Failed" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="If_11">
+              <If.Condition>
+                <InArgument x:TypeArguments="x:Boolean">
+                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_184">!isAllSuccess</CSharpValue>
+                </InArgument>
+              </If.Condition>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="377.6,180" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Throw DisplayName="Throw - BE" sap:VirtualizedContainerService.HintSize="334.4,90.4" sap2010:WorkflowViewState.IdRef="Throw_10">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <InArgument x:TypeArguments="s:Exception">
+                      <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_111">new BusinessRuleException()</CSharpValue>
+                    </InArgument>
+                  </Throw>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="300,82.4" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+            <ui:LogMessage DisplayName="Success Validation" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info">
+              <ui:LogMessage.Message>
+                <InArgument x:TypeArguments="x:Object">
+                  <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_112">"Validation done successful"</CSharpValue>
+                </InArgument>
+              </ui:LogMessage.Message>
+            </ui:LogMessage>
+          </Sequence>
+          <Sequence DisplayName="Dispatch Q-Item" sap:VirtualizedContainerService.HintSize="672,788.8" sap2010:WorkflowViewState.IdRef="Sequence_30">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="s:Exception" Name="SE" />
+              <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="DicOfData" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message - Dipatch Q" sap:VirtualizedContainerService.HintSize="433.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info">
+              <ui:LogMessage.Message>
+                <InArgument x:TypeArguments="x:Object">
+                  <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_87">"Invoke dispatch Q-Item"</CSharpValue>
+                </InArgument>
+              </ui:LogMessage.Message>
+            </ui:LogMessage>
+            <Assign DisplayName="RefNumber" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_22">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_44">ReferenceNumber</CSharpReference>
+                </OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_262">PayrollNumber</CSharpValue>
+                </InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,196.8" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="PostPoneTime" sap:VirtualizedContainerService.HintSize="433.6,83.2" sap2010:WorkflowViewState.IdRef="Assign_23">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">
+                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_45">PostponeTime</CSharpReference>
+                      </OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_263" xml:space="preserve">in_ProcessSpecialConfig["ForceLowPriorityToPostpone"].ToString().Equals("1")?DateTime.Now.ToString("MM/dd/yyyy")+" "+in_ProcessSpecialConfig["LowPriorityPostponeTime"].ToString() :
+DateTime.Now.ToString("MM/dd/yyyy")+" "+ DateTime.Now.AddMinutes(Int32.Parse(in_ProcessSpecialConfig["LowPriorityRunAfter"].ToString())).ToString("hh:mm:ss tt")</CSharpValue>
+                      </InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <Assign DisplayName="Assign - Dic Of Data" sap:VirtualizedContainerService.HintSize="433.6,83.2" sap2010:WorkflowViewState.IdRef="Assign_24">
+              <Assign.To>
+                <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+                  <CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_46">DicOfData</CSharpReference>
+                </OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+                  <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_294" xml:space="preserve">new Dictionary&lt;string,object&gt;(){
+	{"Payroll",PayrollNumber}
+	,{"FullName",FullName}
+	,{"Organization",Organization}
+	,{"SenderName",in_Mail.Sender.DisplayName}
+	,{"To",in_Mail.Sender.Address}
+	,{"Cc",string.Join(";",in_Mail.CC.Select(x=&gt;x.Address))}
+	,{"Bcc",string.Join(";",in_Mail.Bcc.Select(x=&gt;x.Address))}
+	,}</CSharpValue>
+                </InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Add queue item" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Processes\\Queue\\AddQueueItem.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_QueueData">
+                  <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_207">DicOfData</CSharpValue>
+                </InArgument>
+                <OutArgument x:TypeArguments="s:Exception" x:Key="out_SE">
+                  <CSharpReference x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpReference`1_22">SE</CSharpReference>
+                </OutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_QueueName">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_167">in_ProcessSpecialConfig["QueueName"].ToString()</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_QueueFolder">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_166">in_ProcessSpecialConfig["QueueFolder"].ToString()</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_Priority">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_279">in_ProcessSpecialConfig["Priority"].ToString()</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_ReferenceNumber">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_187">ReferenceNumber</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_PostponeTime">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_202">PostponeTime</CSharpValue>
+                </InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <If DisplayName="If SE" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="If_10">
+              <If.Condition>
+                <InArgument x:TypeArguments="x:Boolean">
+                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_86">SE !=null</CSharpValue>
+                </InArgument>
+              </If.Condition>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="377.6,180" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Throw DisplayName="Throw SE" sap:VirtualizedContainerService.HintSize="334.4,90.4" sap2010:WorkflowViewState.IdRef="Throw_9">
+                    <InArgument x:TypeArguments="s:Exception">
+                      <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_89">SE</CSharpValue>
+                    </InArgument>
+                  </Throw>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,180" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - Dipatch Q Terminate" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info">
+                    <ui:LogMessage.Message>
+                      <InArgument x:TypeArguments="x:Object">
+                        <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_88">"Invoke dispatch Q-Item, Terminated successful"</CSharpValue>
+                      </InArgument>
+                    </ui:LogMessage.Message>
+                  </ui:LogMessage>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+          <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Send Confirmation Mail" sap:VirtualizedContainerService.HintSize="496,114.4" sap2010:WorkflowViewState.IdRef="Sequence_33">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="HTMLBody" />
+              <Variable x:TypeArguments="s:Exception" Name="SE" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Prepare HTML body" DisplayName="Prepare html body" sap:VirtualizedContainerService.HintSize="387.2,84" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Processes\\Core\\IndividualMailsProcessing\\OnBoarding\\Utilities\\PrepareHTMLMailBody.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, s:Tuple(x:String, x:String, x:String))" x:Key="in_DictionaryOfDataStatus">
+                  <CSharpValue x:TypeArguments="scg:Dictionary(x:String, s:Tuple(x:String, x:String, x:String))" sap2010:WorkflowViewState.IdRef="CSharpValue`1_117">DicOfStatus</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="snm:MailMessage" x:Key="in_Mail">
+                  <CSharpValue x:TypeArguments="snm:MailMessage" sap2010:WorkflowViewState.IdRef="CSharpValue`1_116">in_Mail</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                  <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_115">in_Config</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_ReferenceNumber">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_114">ReferenceNumber</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_Priority">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_280">in_ProcessSpecialConfig["Priority"].ToString()</CSharpValue>
+                </InArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_HTMLBody">
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_35">HTMLBody</CSharpReference>
+                </OutArgument>
+                <InArgument x:TypeArguments="x:Boolean" x:Key="in_isAllSuccess">
+                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_185">isAllSuccess</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_ProcessConfig">
+                  <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_194">in_ProcessSpecialConfig</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_PostponeTime">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_203">PostponeTime</CSharpValue>
+                </InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
+            <ui:LogMessage DisplayName="Send Success Confirmation Mail" sap:VirtualizedContainerService.HintSize="387.2,52.8" sap2010:WorkflowViewState.IdRef="LogMessage_26" Level="Info">
+              <ui:LogMessage.Message>
+                <InArgument x:TypeArguments="x:Object">
+                  <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_118">"Send Success Confirmation Mail"</CSharpValue>
+                </InArgument>
+              </ui:LogMessage.Message>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:LogMessage>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Send Success Confirmation Mail&#xA;" DisplayName="Send mail" sap:VirtualizedContainerService.HintSize="387.2,112.8" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Processes\\Mail\\SendMail.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                  <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_122">in_Config</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, sn:NetworkCredential)" x:Key="in_Credentials" />
+                <OutArgument x:TypeArguments="s:Exception" x:Key="out_SE">
+                  <CSharpReference x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpReference`1_37">SE</CSharpReference>
+                </OutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_Subject">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_182">in_ProcessSpecialConfig["ProcessCode"].ToString()+" - "+in_Config["SuccessMailValidationSubject"].ToString().Replace("PROCESSNAME",in_ProcessSpecialConfig["ProcessName"].ToString())</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_HTMLBody">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_124">HTMLBody</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_DisplayName">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_139">in_Mail.Sender.DisplayName</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_Address">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_138">in_Mail.Sender.Address</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_Cc">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_137">string.Join(";",in_Mail.CC.Select(x=&gt;x.Address))</CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_Bcc">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_136">string.Join(";",in_Mail.Bcc.Select(x=&gt;x.Address))</CSharpValue>
+                </InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
+          </Sequence>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="561.6,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Rethrow DisplayName="Rethrow - SE" sap:VirtualizedContainerService.HintSize="334.4,24.8" sap2010:WorkflowViewState.IdRef="Rethrow_2" />
+          </ActivityAction>
+        </Catch>
+        <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="561.6,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="ui:BusinessRuleException">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="exception" />
+            </ActivityAction.Argument>
+            <TryCatch DisplayName="Try Catch - Send BE Mail" sap:VirtualizedContainerService.HintSize="488,842.4" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <TryCatch.Try>
+                <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Send Wrong Mail" sap:VirtualizedContainerService.HintSize="450.4,614.4" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="HTMLBody" />
+                    <Variable x:TypeArguments="s:Exception" Name="SE" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Send Success Confirmation Mail" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_27" Level="Info">
+                    <ui:LogMessage.Message>
+                      <InArgument x:TypeArguments="x:Object">
+                        <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_145" xml:space="preserve">"Send Error  Mail to ["+in_Mail.Sender.Address+"] inform that BE Occured"</CSharpValue>
+                      </InArgument>
+                    </ui:LogMessage.Message>
+                  </ui:LogMessage>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Prepare HTML body" DisplayName="Processes\\IndividualMailsProcessing\\CustomerVerification\\Utilities\\PrepareHTMLMailBody.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,144" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Processes\\Core\\IndividualMailsProcessing\\OnBoarding\\Utilities\\PrepareHTMLMailBody.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, s:Tuple(x:String, x:String, x:String))" x:Key="in_DictionaryOfDataStatus">
+                        <CSharpValue x:TypeArguments="scg:Dictionary(x:String, s:Tuple(x:String, x:String, x:String))" sap2010:WorkflowViewState.IdRef="CSharpValue`1_125">DicOfStatus</CSharpValue>
+                      </InArgument>
+                      <InArgument x:TypeArguments="snm:MailMessage" x:Key="in_Mail">
+                        <CSharpValue x:TypeArguments="snm:MailMessage" sap2010:WorkflowViewState.IdRef="CSharpValue`1_126">in_Mail</CSharpValue>
+                      </InArgument>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                        <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_127">in_Config</CSharpValue>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_ReferenceNumber">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_128">string.Empty</CSharpValue>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_Priority">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_129">string.Empty</CSharpValue>
+                      </InArgument>
+                      <OutArgument x:TypeArguments="x:String" x:Key="out_HTMLBody">
+                        <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_39">HTMLBody</CSharpReference>
+                      </OutArgument>
+                      <InArgument x:TypeArguments="x:Boolean" x:Key="in_isAllSuccess">False</InArgument>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_ProcessConfig">
+                        <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_204">in_ProcessSpecialConfig</CSharpValue>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_PostponeTime" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Send Success Confirmation Mail&#xA;" DisplayName="Processes\\Mail\\SendMail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="Processes\\Mail\\SendMail.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                        <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_131">in_Config</CSharpValue>
+                      </InArgument>
+                      <InArgument x:TypeArguments="scg:Dictionary(x:String, sn:NetworkCredential)" x:Key="in_Credentials" />
+                      <OutArgument x:TypeArguments="s:Exception" x:Key="out_SE">
+                        <CSharpReference x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpReference`1_40">SE</CSharpReference>
+                      </OutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_Subject">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_205">in_ProcessSpecialConfig["ProcessCode"].ToString()+" - "+in_Config["WrongMailValidationSubject"].ToString().Replace("PROCESSNAME",in_ProcessSpecialConfig["ProcessName"].ToString())</CSharpValue>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_HTMLBody">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_135">HTMLBody</CSharpValue>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_DisplayName">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_140">in_Mail.Sender.DisplayName</CSharpValue>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_Address">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_141">in_Mail.Sender.Address</CSharpValue>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_Cc">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_142">string.Join(";",in_Mail.CC.Select(x=&gt;x.Address))</CSharpValue>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_Bcc">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_143">string.Join(";",in_Mail.Bcc.Select(x=&gt;x.Address))</CSharpValue>
+                      </InArgument>
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:InvokeWorkflowFile>
+                </Sequence>
+              </TryCatch.Try>
+              <TryCatch.Catches>
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="454,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ActivityAction x:TypeArguments="s:Exception">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                    </ActivityAction.Argument>
+                    <Rethrow DisplayName="Rethrow - SE" sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+                  </ActivityAction>
+                </Catch>
+              </TryCatch.Catches>
+            </TryCatch>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>

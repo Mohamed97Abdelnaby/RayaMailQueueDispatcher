@@ -1,0 +1,20 @@
+﻿<p style="text-align: center;"><img src="data:image/png;base64,TOKEN0 class=" /></p>
+<p>&nbsp;</p>
+<hr />
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><span style="color: #339966;"><strong>Hello</strong></span>, <strong>TOKEN1</strong></p>
+<p style="text-align: center;">Here is, <strong>TOKEN2</strong></p>
+<p style="text-align: justify;">Regarding <em><span style="text-decoration: underline;">OnBoarding Request</span></em> <strong>Processing</strong>, We have received your request, it has been processed, and it turns out that the data submitted is [<span style="text-decoration: underline;"><span style="color: #008000; text-decoration: underline;"><strong>Correct</strong></span></span>] and validated, kindly check table below.</p>
+<hr />
+TOKEN3
+TOKEN7
+<hr />
+<p><span style="text-decoration: underline;"><strong>Hint</strong></span>: Given that the priority to carry out the operation is [<strong><span style="color: #TOKEN4COLOR;">TOKEN4</span></strong>], please note that the operation will be carried out <strong>TOKEN5</strong>&nbsp;and an email will be sent explaining the details of the processing.</p>
+<hr />
+<h3 style="text-align: center;"><em><strong>Request Reference Number</strong></em></h3>
+<p style="text-align: center;"><strong> TOKEN6</strong></p>
+<hr />
+<p style="text-align: center;"><strong>Thanks</strong></p>
+<h6 style="text-align: left;"><strong>Powered By: <span style="color: #0000ff;">Raya</span></strong></h6>
+<h6 style="text-align: left;"><strong>Service name: <span style="color: #339966;">RPA-Onboaring Request</span></strong></h6>
+<h6 style="text-align: left;"><span style="color: #ff0000;"><strong>Do not reply it is automated mail</strong></span></h6>

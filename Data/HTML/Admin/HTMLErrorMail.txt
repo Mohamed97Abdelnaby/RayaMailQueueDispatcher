@@ -1,0 +1,15 @@
+<p style="text-align: center;"><img src="data:image/png;base64,TOKEN0 class=" /></p>
+<hr />
+<p style="text-align: center;"><span style="color: #339966;"><strong>Hello</strong></span>, <strong>TOKEN1</strong></p>
+<p style="text-align: center;">Here is, <strong>TOKEN2</strong></p>
+<p style="text-align: justify;">Regarding Mansour - Dispatcher RPA <span style="text-decoration: underline;"><strong>Processing</strong></span>, we regret to inform you that an <span style="text-decoration: underline; color: #ff6600;"><strong>ERROR</strong></span>&nbsp;occurred while processing.</p>
+<hr />
+<p><span style="text-decoration: underline;"><strong>Details:</strong></span></p>
+TOKEN3
+<p><strong>Error type</strong>: <span style="color: #ff0000;">TOKEN4</span></p>
+<p><strong>Error Message</strong>: TOKEN5</p>
+<hr />
+<p style="text-align: center;"><strong>Thanks</strong></p>
+<h6 style="text-align: left;"><strong>Powered By: <span style="color: #0000ff;">Raya</span></strong></h6>
+<h6 style="text-align: left;"><strong>Service name: <span style="color: #339966;">RPA-ETA Invoices extraction</span></strong></h6>
+<h6 style="text-align: left;"><span style="color: #ff0000;"><strong>Do not reply it is automated mail</strong></span></h6>

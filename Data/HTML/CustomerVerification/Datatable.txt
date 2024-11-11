@@ -1,0 +1,14 @@
+﻿<p><strong>- The table below shows the data of the sent request, the extracted data, and the status</strong></p>
+<table style="width: 100%; border-collapse: collapse; border-style: double; height: 54px;" border="1">
+<tbody>
+<tr style="height: 36px;">
+<th style="width: 20%; background-color: #8ea9db; height: 36px; text-align: center;"><span style="color: #ffffff;">Field</span></th>
+<th style="width: 20%; background-color: #8ea9db; height: 36px; text-align: center;"><span style="color: #ffffff;">Original Request Data</span></th>
+<th style="width: 20%; background-color: #8ea9db; height: 36px; text-align: center;"><span style="color: #ffffff;">Extracted Information</span></th>
+<th style="width: 20%; background-color: #8ea9db; height: 36px; text-align: center;"><span style="color: #ffffff;">Status</span></th>
+<th style="width: 20%; background-color: #8ea9db; height: 36px; text-align: center;"><span style="color: #ffffff;">Comments</span></th>
+</tr>
+TOKEN1
+</tbody>
+</table>
+<hr />

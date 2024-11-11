@@ -1,0 +1,16 @@
+<p style="text-align: center;"><img src="data:image/png;base64,TOKEN0 class=" /></p>
+<p>&nbsp;</p>
+<hr />
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><span style="color: #339966;"><strong>Hello</strong></span>, <strong>TOKEN1</strong></p>
+<p style="text-align: center;">Here is, <strong>TOKEN2</strong></p>
+<p style="text-align: justify;">Regarding <em><span style="text-decoration: underline;">Customer Verification - Requests</span></em> <strong>Processing</strong>, We have received your request, it has been processed, and it turns out that the data submitted is [<span style="text-decoration: underline; color: #ff0000;"><span style="text-decoration: underline;"><strong>Wrong</strong></span></span>], kindly check table below.</p>
+<hr />
+<p>TOKEN3</p>
+<hr />
+<p><span style="text-decoration: underline;"><strong>Hint</strong></span>: Please correct the errors in the email that was previously sent and <strong><span style="color: #339966;">re-send</span></strong> it again, in the event that the error received is not clear, please refer to the admin. We are always pleased to serve you.</p>
+<hr />
+<p style="text-align: center;"><strong>Thanks</strong></p>
+<h6 style="text-align: left;"><strong>Powered By: <span style="color: #0000ff;">Raya</span></strong></h6>
+<h6 style="text-align: left;"><strong>Service name: <span style="color: #339966;">RPA-Caustomer Verification</span></strong></h6>
+<h6 style="text-align: left;"><span style="color: #ff0000;"><strong>Do not reply it is automated mail</strong></span></h6>
